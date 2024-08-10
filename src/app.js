@@ -6,6 +6,7 @@ const PORT = 3000
 const app = express()
 
 //using routes
+app.use(express.json())
 app.use(userRouter)
 app.use(productRouter)
 
