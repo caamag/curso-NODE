@@ -1,10 +1,7 @@
 import { Router } from "express";
 
 export const productRouter = Router();
-const router = Router();
 
-productRouter.use('/products', router);
-
-router.get('/', (req, res) => {
+productRouter.get('/', (req, res): void => {
     res.send('Página de produtos')
 })

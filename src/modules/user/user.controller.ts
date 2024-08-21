@@ -1,18 +1,14 @@
 import { Router } from "express";
-import { getUsers } from "./user.service";
-import { createUser } from "./user.service";
+import { getUsers, createUser } from "./user.service";
 
 export const userRouter = Router()
-const router = Router()
 
-userRouter.use('/users', router)
-
-router.get('/', async (req, res) => {
+userRouter.get('/', async (req, res): Promise<void> => {
     const users = await getUsers()
     res.send(users)
 })
 
-router.post('/', async (req, res) => {
+userRouter.post('/', async (req, res): Promise<void> => {
     const userCreated = await createUser(req.body)
     res.send(userCreated)
 })
